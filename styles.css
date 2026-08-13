@@ -337,7 +337,101 @@ a:hover {
     font-size: var(--fs-hero-sub);
 }
 
-/* Architecture Responsive Grid */
+/* Interactive 3D Stack Architecture Diagram */
+.arch-diagram-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(320px, 35vw, 650px), 1fr));
+    gap: clamp(24px, 3vw, 56px);
+    align-items: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border-highlight);
+    border-radius: clamp(16px, 2vw, 28px);
+    padding: clamp(24px, 3vw, 48px);
+    box-shadow: 0 0 40px rgba(0, 242, 254, 0.12), 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.svg-diagram-container {
+    width: 100%;
+    border-radius: 16px;
+    background: #030712;
+    border: 1px solid var(--border-color);
+    padding: 16px;
+    overflow: hidden;
+}
+
+.arch-svg-graphic {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.svg-layer-group {
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.svg-layer-group:hover .layer-shape, .svg-layer-group.active-target .layer-shape {
+    stroke: var(--accent-cyan) !important;
+    stroke-width: 3px !important;
+    filter: drop-shadow(0 0 12px rgba(0, 242, 254, 0.6));
+}
+
+.animated-tsv {
+    animation: dashPulse 2s infinite linear;
+}
+
+@keyframes dashPulse {
+    from { stroke-dashoffset: 20; }
+    to { stroke-dashoffset: 0; }
+}
+
+.arch-info-panel {
+    background: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: clamp(20px, 2.5vw, 36px);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.info-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(0, 242, 254, 0.15);
+    color: var(--accent-cyan);
+    font-size: 0.75rem;
+    font-family: var(--font-code);
+    font-weight: 700;
+    border-radius: 4px;
+    align-self: flex-start;
+}
+
+.info-specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    margin-top: 12px;
+    border-top: 1px dashed var(--border-color);
+    padding-top: 16px;
+}
+
+.spec-mini {
+    display: flex;
+    flex-direction: column;
+}
+
+.s-key {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.s-val {
+    font-size: 0.95rem;
+    font-weight: 700;
+    font-family: var(--font-code);
+    margin-top: 2px;
+}
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(clamp(300px, 26vw, 480px), 1fr));
