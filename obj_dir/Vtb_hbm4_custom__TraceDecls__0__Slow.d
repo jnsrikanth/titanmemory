@@ -1,0 +1,14 @@
+Vtb_hbm4_custom__TraceDecls__0__Slow.o: \
+  /Users/srikanthjallapuram/Ventures/MyMemory/hbm4_custom/obj_dir/Vtb_hbm4_custom__pch.h \
+  /opt/homebrew/Cellar/verilator/5.050/share/verilator/include/verilated.h \
+  /opt/homebrew/Cellar/verilator/5.050/share/verilator/include/verilated_config.h \
+  /opt/homebrew/Cellar/verilator/5.050/share/verilator/include/verilatedos.h \
+  /opt/homebrew/Cellar/verilator/5.050/share/verilator/include/verilated_types.h \
+  /opt/homebrew/Cellar/verilator/5.050/share/verilator/include/verilated_funcs.h \
+  /Users/srikanthjallapuram/Ventures/MyMemory/hbm4_custom/obj_dir/Vtb_hbm4_custom__Syms.h \
+  /Users/srikanthjallapuram/Ventures/MyMemory/hbm4_custom/obj_dir/Vtb_hbm4_custom.h \
+  /Users/srikanthjallapuram/Ventures/MyMemory/hbm4_custom/obj_dir/Vtb_hbm4_custom___024root.h \
+  /opt/homebrew/Cellar/verilator/5.050/share/verilator/include/verilated_timing.h \
+  Vtb_hbm4_custom__TraceDecls__0__Slow.cpp \
+  /opt/homebrew/Cellar/verilator/5.050/share/verilator/include/verilated_vcd_c.h \
+  /opt/homebrew/Cellar/verilator/5.050/share/verilator/include/verilated_trace.h

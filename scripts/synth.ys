@@ -1,0 +1,28 @@
+# Yosys RTL Synthesis script for hbm4_custom_top
+
+# Read SystemVerilog RTL using SystemVerilog frontend
+read -sv rtl/hbm4_custom_pkg.sv
+read -sv rtl/priority_router.sv
+read -sv rtl/micro_flit_engine.sv
+read -sv rtl/reorder_buffer.sv
+read -sv rtl/hbm4_custom_top.sv
+
+# Elaborate hierarchy
+hierarchy -top hbm4_custom_top
+
+# Run High-Level Synthesis Passes
+proc
+opt
+memory
+opt
+fsm
+opt
+
+# Generic Synthesis
+synth -top hbm4_custom_top
+
+# Print Gate & Resource Statistics
+stat
+
+# Output Gate-Level Netlist
+write_verilog openlane/hbm4_custom_top_netlist.v

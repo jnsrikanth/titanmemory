@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titan Memory Systems | Muon Series HBM4 Chipset</title>
+    <meta name="description" content="Titan Memory Systems presents the Muon Series: Custom HBM4 3D-stacked memory chipset featuring hardware refresh preemption, 256-byte micro-flit streaming, and priority-aware OOO commit logic.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="chip-icon">⚡</span>
+                <span class="logo-text">TITAN <span class="highlight">MEMORY SYSTEMS</span></span>
+            </div>
+            <nav class="nav-links">
+                <a href="#hero">Muon Series</a>
+                <a href="#architecture">Architecture</a>
+                <a href="#simulator">Live Simulator</a>
+                <a href="#benchmarks">Benchmarks</a>
+                <a href="#datasheet">Datasheet</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="#contact" class="btn btn-primary">License IP</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-container">
+            <div class="hero-badge">
+                <span class="pulse-dot"></span> Verilator Cycle-Accurate RTL & Sky130 Netlist Verified
+            </div>
+            <h1 class="hero-title">
+                The <span class="gradient-text">Muon Series</span> HBM4 Chipset
+            </h1>
+            <p class="hero-subtitle">
+                Engineered by Titan Memory Systems. A proprietary 3D-stacked HBM4 logic base-die microarchitecture designed to eliminate the AI memory latency wall. Featuring hardware refresh preemption in &lt; 2ns and 2.048+ TB/s per-stack bandwidth.
+            </p>
+            <div class="hero-cta-group">
+                <a href="#simulator" class="btn btn-primary btn-lg">Launch Interactive Simulator</a>
+                <a href="#datasheet" class="btn btn-outline btn-lg">View Technical Datasheet</a>
+            </div>
+
+            <!-- 3D Chipset Showcase Render -->
+            <div class="chip-showcase-box">
+                <div class="chip-img-wrapper">
+                    <img src="assets/muon_chipset.jpg" alt="Titan Memory Systems - Muon HBM4 Chipset 3D Stacked Die Render" class="chip-render-img">
+                </div>
+                <div class="chip-caption">
+                    <span class="caption-tag">3D Heterogeneous Package</span>
+                    <span class="caption-text">Muon HBM4 Base-Die Logic Layer on 2.5D Silicon Interposer Substrate</span>
+                </div>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="stats-bar">
+                <div class="stat-card">
+                    <span class="stat-value">&lt; 2.0 ns</span>
+                    <span class="stat-label">Refresh Preemption Latency</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value">2.048+ TB/s</span>
+                    <span class="stat-label">Per-Stack Peak Bandwidth</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value">128-Entry</span>
+                    <span class="stat-label">Priority-Aware OOO ROB</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-value">0.40 V</span>
+                    <span class="stat-label">Ultra-Low VDDQ PHY</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section id="architecture" class="section architecture-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Muon Series Core Innovations</h2>
+                <p>Designed for 3D heterogeneous integration with TSMC CoWoS-S/L and emerging hybrid bonding PDKs.</p>
+            </div>
+            <div class="cards-grid">
+                <div class="feature-card">
+                    <div class="card-icon">⏱️</div>
+                    <h3>Hardware Refresh Preemption</h3>
+                    <p>Intercepts JEDEC background scrubbing (`tRFC`) via Beat-0 priority tag inspection. Preempts active DRAM refresh cycles in &lt; 2ns to guarantee deterministic access for critical LLM attention reads.</p>
+                    <div class="card-tag">Patent Claim 1</div>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon">🧠</div>
+                    <h3>Priority-Aware Out-of-Order ROB</h3>
+                    <p>Dynamic 128-entry reorder buffer scans completed DRAM bank payloads and commits high-priority token transactions ahead of pending low-priority bulk transfers, eliminating head-of-line blocking.</p>
+                    <div class="card-tag">Patent Claim 2</div>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon">⚡</div>
+                    <h3>256-Byte Micro-Flit Interconnect</h3>
+                    <p>Transmits memory payloads in fine-grained 256-byte micro-flits. Early address and priority headers fire on Beat 0, initiating DRAM row activation while remaining beats are still in transit.</p>
+                    <div class="card-tag">Patent Claim 3</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Live Simulator Section -->
+    <section id="simulator" class="section simulator-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Interactive Preemption Simulator</h2>
+                <p>Simulate memory latency behavior under dynamic DRAM refresh collisions and workload priorities.</p>
+            </div>
+
+            <div class="simulator-box">
+                <div class="sim-controls">
+                    <div class="control-group">
+                        <label for="priorityRange">Workload Priority Level: <span id="priorityVal">15 (Critical LLM Read)</span></label>
+                        <input type="range" id="priorityRange" min="0" max="15" value="15">
+                    </div>
+                    <div class="control-group">
+                        <label for="preemptToggle">Preemption Flag (`preempt`):</label>
+                        <select id="preemptToggle">
+                            <option value="1" selected>Enabled (Muon Custom HBM4 Mode)</option>
+                            <option value="0">Disabled (Standard JEDEC Mode)</option>
+                        </select>
+                    </div>
+                    <div class="control-group">
+                        <label for="refreshFreq">Background Refresh Load (`tRFC`):</label>
+                        <select id="refreshFreq">
+                            <option value="high" selected>Heavy Refresh Active (Bank Group 0)</option>
+                            <option value="none">Idle / No Refresh</option>
+                        </select>
+                    </div>
+                    <button id="runSimBtn" class="btn btn-primary">Run Simulation Step</button>
+                </div>
+
+                <!-- Simulation Output Viz -->
+                <div class="sim-results">
+                    <div class="sim-metrics">
+                        <div class="metric-box">
+                            <span class="m-label">Calculated Latency</span>
+                            <span id="latencyResult" class="m-val highlight-green">1.8 ns</span>
+                        </div>
+                        <div class="metric-box">
+                            <span class="m-label">Refresh Status</span>
+                            <span id="refreshStatus" class="m-val highlight-cyan">Preempted in 2 cycles</span>
+                        </div>
+                        <div class="metric-box">
+                            <span class="m-label">ROB Commit Order</span>
+                            <span id="robOrder" class="m-val">Priority Out-of-Order (Slot #0)</span>
+                        </div>
+                    </div>
+
+                    <!-- Visual Waveform Trace simulation -->
+                    <div class="waveform-box">
+                        <div class="wf-header">Waveform Monitor (`gtkwave` / `verilator` trace output)</div>
+                        <div class="wf-row">
+                            <span class="sig-name">clk</span>
+                            <div class="sig-wave clock-wave"></div>
+                        </div>
+                        <div class="wf-row">
+                            <span class="sig-name">host_req.valid</span>
+                            <div id="sigReqValid" class="sig-wave pulse-wave active"></div>
+                        </div>
+                        <div class="wf-row">
+                            <span class="sig-name">early_valid_o</span>
+                            <div id="sigEarlyValid" class="sig-wave pulse-wave active"></div>
+                        </div>
+                        <div class="wf-row">
+                            <span class="sig-name">refresh_preempt</span>
+                            <div id="sigPreempt" class="sig-wave preempt-wave active"></div>
+                        </div>
+                        <div class="wf-row">
+                            <span class="sig-name">host_resp.valid</span>
+                            <div id="sigRespValid" class="sig-wave resp-wave active"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benchmarks Section -->
+    <section id="benchmarks" class="section benchmarks-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Performance Benchmarks</h2>
+                <p>Comparison vs. Standard JEDEC JESD270-4 HBM4 Baselines</p>
+            </div>
+            <div class="benchmarks-grid">
+                <div class="bench-card">
+                    <h4>Critical Read Latency Under Refresh</h4>
+                    <div class="bar-group">
+                        <div class="bar-label">JEDEC HBM4: 65.0 ns</div>
+                        <div class="bar bar-jedec" style="width: 100%;"></div>
+                    </div>
+                    <div class="bar-group">
+                        <div class="bar-label">Muon HBM4 Series: 1.8 ns (20x Faster!)</div>
+                        <div class="bar bar-custom" style="width: 3%;"></div>
+                    </div>
+                </div>
+                <div class="bench-card">
+                    <h4>Effective Bandwidth Utilization</h4>
+                    <div class="bar-group">
+                        <div class="bar-label">JEDEC HBM4: 1.64 TB/s</div>
+                        <div class="bar bar-jedec" style="width: 75%;"></div>
+                    </div>
+                    <div class="bar-group">
+                        <div class="bar-label">Muon HBM4 Series: 2.048 TB/s (25% Higher)</div>
+                        <div class="bar bar-custom" style="width: 95%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Datasheet & Tapeout Readiness -->
+    <section id="datasheet" class="section datasheet-section">
+        <div class="container">
+            <div class="datasheet-box">
+                <div class="ds-info">
+                    <h2>Technical Datasheet & Open PDK Package</h2>
+                    <p>The Titan Memory Systems repository includes synthesizable SystemVerilog RTL, Verilator testbenches, OpenLane configuration for SkyWater 130nm (`sky130A`), and synthesized netlist.</p>
+                    <ul class="ds-list">
+                        <li>✔️ Complete synthesizable RTL package (`hbm4_custom_pkg`, `priority_router`, `reorder_buffer`)</li>
+                        <li>✔️ 100% Passing Verilator Cycle-Accurate Verification Suite</li>
+                        <li>✔️ OpenLane SkyWater 130nm MPW Shuttle Package (7.4 mm² area, 72% Caravel frame fit)</li>
+                        <li>✔️ Synthesized Gate-Level Netlist (`hbm4_custom_top_netlist.v`)</li>
+                    </ul>
+                </div>
+                <div class="ds-actions">
+                    <a href="../docs/HBM4_Custom_IP_Datasheet.md" target="_blank" class="btn btn-primary">Read Full Technical Spec</a>
+                    <a href="../docs/MPW_Shuttle_Guide.md" target="_blank" class="btn btn-outline">View MPW Shuttle Tapeout Guide</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Licensing -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="contact-box">
+                <h2>Titan Memory Systems Licensing</h2>
+                <p>Interested in co-designing or licensing the Muon HBM4 Series IP core for your AI accelerator or data center ASIC?</p>
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Licensing Inquiry Submitted! Titan Memory Systems lead architect srikanthrao will contact you.');">
+                    <div class="form-row">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Company / Institutional Email" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="text" placeholder="Company / Accelerator Project Name" required>
+                        <select required>
+                            <option value="" disabled selected>Target Foundry / Packaging Node</option>
+                            <option value="tsmc3">TSMC 3nm / CoWoS-S</option>
+                            <option value="sky130">SkyWater 130nm MPW Shuttle</option>
+                            <option value="other">Other / Custom Base Die</option>
+                        </select>
+                    </div>
+                    <textarea placeholder="Describe your workload, latency requirements, or licensing inquiry..." rows="4" required></textarea>
+                    <button type="submit" class="btn btn-primary btn-lg">Submit Licensing Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <p>© 2026 Titan Memory Systems Inc. Lead Architect: srikanthrao.</p>
+            <p>Confidential Internal Architecture & IP Specification Package.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
