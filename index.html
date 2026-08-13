@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Titan Memory Systems | Muon Series HBM4 Chipset</title>
-    <meta name="description" content="Titan Memory Systems presents the Muon Series: Custom HBM4 3D-stacked memory chipset featuring hardware refresh preemption, 256-byte micro-flit streaming, and priority-aware OOO commit logic.">
+    <title>Titan Memory Systems | Muon Series HBM4 Chipset for AI Data Centers</title>
+    <meta name="description" content="Titan Memory Systems presents the Muon Series: Custom HBM4 3D-stacked memory chipset engineered for the next wave of AI data center buildouts, NVIDIA Rubin GPUs, and Hyperscaler ASICs.">
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,9 +22,10 @@
             </div>
             <nav class="nav-links">
                 <a href="#hero">Muon Series</a>
-                <a href="#architecture">Architecture Diagram</a>
+                <a href="#whymuon">Why Muon?</a>
+                <a href="#architecture">Architecture</a>
+                <a href="#ecosystem">Ecosystem & Partners</a>
                 <a href="#simulator">Live Simulator</a>
-                <a href="#benchmarks">Benchmarks</a>
                 <a href="datasheet.html">Datasheet</a>
                 <a href="tapeout.html">Tapeout Guide</a>
             </nav>
@@ -38,13 +39,13 @@
     <section id="hero" class="hero-section">
         <div class="hero-container">
             <div class="hero-badge">
-                <span class="pulse-dot"></span> Verilator Cycle-Accurate RTL & Sky130 Netlist Verified
+                <span class="pulse-dot"></span> Fueling the Next Wave of AI Data Center Buildouts
             </div>
             <h1 class="hero-title">
                 The <span class="gradient-text">Muon Series</span> HBM4 Chipset
             </h1>
             <p class="hero-subtitle">
-                Engineered by Titan Memory Systems. A proprietary 3D-stacked HBM4 logic base-die microarchitecture designed to eliminate the AI memory latency wall. Featuring hardware refresh preemption in &lt; 2ns and 2.048+ TB/s per-stack bandwidth.
+                Deterministic 3D Memory Logic for 100,000+ GPU AI Clusters. Engineered by Titan Memory Systems to eliminate the memory latency wall, unlocking sub-2ns refresh preemption and 2.048+ TB/s per-stack bandwidth.
             </p>
             <div class="hero-cta-group">
                 <a href="#simulator" class="btn btn-primary btn-lg">Launch Interactive Simulator</a>
@@ -79,6 +80,75 @@
                 <div class="stat-card">
                     <span class="stat-value">0.40 V</span>
                     <span class="stat-label">Ultra-Low VDDQ PHY</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Muon Series Section -->
+    <section id="whymuon" class="section whymuon-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Muon Series? The AI Memory Bottleneck Solved</h2>
+                <p>Designed specifically to maximize GPU utilization and cut cluster tail latency in next-gen AI supercomputers.</p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="feature-card">
+                    <div class="card-icon">🚀</div>
+                    <h3>Eliminating GPU Starvation</h3>
+                    <p>In massive LLM training and inference clusters (e.g. Llama 3 405B & Gemini), standard HBM refresh stalls freeze thousands of Tensor Cores. Muon's &lt;2ns hardware preemption eliminates memory stalls, ensuring GPUs never sit idle.</p>
+                    <div class="card-tag">Peak Compute Utilization</div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="card-icon">💰</div>
+                    <h3>25% Higher Token Throughput & Lower TCO</h3>
+                    <p>By delivering 2.048+ TB/s per stack and 256-byte micro-flit streaming optimized for KV-cache retrievals, Muon increases inference token-per-second generation speed while cutting data center energy overhead.</p>
+                    <div class="card-tag">Data Center TCO Reduction</div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="card-icon">🔬</div>
+                    <h3>Smart 3nm Base-Die Intelligence</h3>
+                    <p>Standard HBM3e relied on passive base dies. HBM4 introduces 3nm/4nm active logic nodes. Titan's Muon IP embeds priority routing and out-of-order execution directly into the bottom logic die layer.</p>
+                    <div class="card-tag">3D Heterogeneous IP</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Ecosystem & Partners Section -->
+    <section id="ecosystem" class="section ecosystem-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Target Ecosystem & Industry Partners</h2>
+                <p>Strategic licensing and co-design paths for semiconductor leaders and cloud providers.</p>
+            </div>
+
+            <div class="cards-grid">
+                <div class="feature-card">
+                    <div class="card-icon">🏭</div>
+                    <h3>Tier-1 Memory Vendors</h3>
+                    <p style="margin-bottom: 12px;"><strong>SK Hynix, Samsung, Micron</strong></p>
+                    <p>Differentiate your HBM4 stacks against standard JEDEC offerings. Licensing Muon Base-Die IP delivers 20x lower latency for your flagship memory stacks.</p>
+                    <div class="card-tag">HBM4 Memory Makers</div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="card-icon">🖥️</div>
+                    <h3>AI Chipmakers & GPU Builders</h3>
+                    <p style="margin-bottom: 12px;"><strong>NVIDIA (Rubin Ultra), AMD, Broadcom</strong></p>
+                    <p>Co-specify Muon HBM4 base dies to eliminate GPU memory wait states, boosting tokens-per-second output without modifying GPU SM cores.</p>
+                    <div class="card-tag">Next-Gen AI GPUs</div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="card-icon">☁️</div>
+                    <h3>Hyperscaler Custom Silicon</h3>
+                    <p style="margin-bottom: 12px;"><strong>AWS (Trainium), Google (TPU), Meta (MTIA)</strong></p>
+                    <p>Integrate Muon base-die IP into custom AI accelerator ASICs to cut cloud cluster tail latency by 85% and maximize infrastructure ROI.</p>
+                    <div class="card-tag">Cloud AI Data Centers</div>
                 </div>
             </div>
         </div>
@@ -199,7 +269,7 @@
                         </div>
                         <div class="spec-mini">
                             <span class="s-key">ROB Capacity</span>
-                            <span class="s-val">128 Outstanding Transactions</span>
+                            <span class="s-val">128 Outstanding Entries</span>
                         </div>
                         <div class="spec-mini">
                             <span class="s-key">Sideband Bus</span>
