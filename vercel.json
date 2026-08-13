@@ -1,9 +1,17 @@
 {
   "version": 2,
   "cleanUrls": true,
-  "rewrites": [
-    { "source": "/", "destination": "/index.html" },
-    { "source": "/styles.css", "destination": "/styles.css" },
-    { "source": "/app.js", "destination": "/app.js" }
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.titanmemory.io"
+        }
+      ],
+      "destination": "https://titanmemory.io/:path*",
+      "permanent": true
+    }
   ]
 }
